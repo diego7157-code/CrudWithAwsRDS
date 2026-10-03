@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="ClienteApi.Application/ClienteApi.Application.csproj" />
+  <Project Path="ClienteApi.Domain/ClienteApi.Domain.csproj" />
+  <Project Path="ClienteApi.Infrastructure/ClienteApi.Infrastructure.csproj" />
+  <Project Path="ClienteApi.Lambda/ClienteApi.Lambda.csproj" />
+  <Project Path="ClienteApi.Tests/ClienteApi.Tests.csproj" />
+</Solution>

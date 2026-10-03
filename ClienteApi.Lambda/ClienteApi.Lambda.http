@@ -1,0 +1,109 @@
+@ClienteApi.Lambda_HostAddress = http://localhost:5195
+@clienteId = 1
+@contatoId = 1
+
+GET {{ClienteApi.Lambda_HostAddress}}/api/cliente
+Accept: application/json
+
+###
+
+POST {{ClienteApi.Lambda_HostAddress}}/api/cliente
+Content-Type: application/json
+
+{
+  "nome": "Cliente de teste",
+  "cpf": "12345678900",
+  "rg": "1234567",
+  "dataNascimento": "03/03/1988",
+  "sexo": "M",
+  "nomeMae": "Nome da mae",
+  "endereco": {
+    "rua": "Rua de teste",
+    "numero": "100",
+    "complemento": "",
+    "bairro": "Centro",
+    "cidade": "Sao Paulo",
+    "estado": "SP",
+    "pais": "Brasil",
+    "codigoPostal": "01000-000"
+  },
+  "contatos": [
+    {
+      "tipo": "Email",
+      "valor": "teste@example.com"
+    }
+  ]
+}
+
+###
+
+PATCH {{ClienteApi.Lambda_HostAddress}}/api/cliente/{{clienteId}}/endereco
+Content-Type: application/json
+
+{
+  "rua": "Nove Irmaos",
+  "numero": 270,
+  "complemento": "Casa",
+  "bairro": "Bela Vista",
+  "cidade": "Campinas",
+  "estado": "MG",
+  "pais": "BR",
+  "codigoPostal": "32920000"
+}
+
+###
+
+PUT {{ClienteApi.Lambda_HostAddress}}/api/cliente/{{clienteId}}/endereco
+Content-Type: application/json
+
+{
+  "rua": "Rua atualizada",
+  "numero": "200",
+  "complemento": "",
+  "bairro": "Centro",
+  "cidade": "Campinas",
+  "estado": "SP",
+  "pais": "Brasil",
+  "codigoPostal": "13000-000"
+}
+
+###
+
+PATCH {{ClienteApi.Lambda_HostAddress}}/api/cliente/{{clienteId}}/contatos/{{contatoId}}
+Content-Type: application/json
+
+{
+  "valor": "novo-contato@example.com"
+}
+
+###
+
+POST {{ClienteApi.Lambda_HostAddress}}/api/cliente/{{clienteId}}/contatos
+Content-Type: application/json
+
+[
+  {
+    "tipo": "Email",
+    "valor": "outro@example.com"
+  },
+  {
+    "tipo": "Telefone",
+    "valor": "+5511999999999"
+  }
+]
+
+###
+
+PATCH {{ClienteApi.Lambda_HostAddress}}/api/cliente/{{clienteId}}/contatos
+Content-Type: application/json
+
+[
+  {
+    "id": 1,
+    "valor": "atualizado@example.com"
+  },
+  {
+    "id": 2,
+    "ativo": false
+  }
+]

@@ -1,0 +1,13 @@
+# Build and test artifacts
+[Bb]in/
+[Oo]bj/
+TestResults/
+.vs/
+.aws-sam/
+
+# Local configuration and secrets
+**/appsettings.Development.json
+**/appsettings.Local.json
+**/secrets.json
+*.user
+*.suo
